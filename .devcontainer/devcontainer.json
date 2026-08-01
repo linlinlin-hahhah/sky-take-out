@@ -1,0 +1,27 @@
+{
+  "name": "苍穹外卖后端开发环境",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vmware.vscode-boot-dev-pack",
+        "redhat.vscode-yaml"
+      ]
+    }
+  },
+  "postCreateCommand": "mkdir -p ~/.m2 && cp .devcontainer/maven-settings.xml ~/.m2/settings.xml && java -version && mvn -version",
+  "forwardPorts": [8080, 8081, 3306, 6379],
+  "remoteEnv": {
+    "SKY_DATASOURCE_HOST": "mysql",
+    "SKY_DATASOURCE_PORT": "3306",
+    "SKY_DATASOURCE_DATABASE": "sky_take_out",
+    "SKY_DATASOURCE_USERNAME": "root",
+    "SKY_DATASOURCE_PASSWORD": "123456",
+    "SKY_REDIS_HOST": "redis",
+    "SKY_REDIS_PORT": "6379",
+    "SKY_REDIS_DATABASE": "10"
+  }
+}
